@@ -1,0 +1,80 @@
+---
+title: "Thermal Comfort Analysis"
+author: "Kafaru Simileoluwa"
+output:
+  html_document:
+    df_print: paged
+---
+
+<br>
+
+### **This project was done in partial fulfilment of my B.Tech certification**
+
+
+<br>
+
+**What is thermal comfort?** 
+  It is regarded as a condition of the mind in which satisfaction is expressed with the Thermal environment. 
+  There are many indices that have been proposed for evaluating thermal comfort, for this study I used the Thoms Discomfort Index otherwise known as Temperature Humidity Index (THI). 
+
+```{r THI Index Table, tidy=TRUE}
+Class_number <- c(1,2,3,4,5,6)
+
+THI <- c("THI <- 21", "21 <= THI <= 24", "24 <= THI < 27", "27 <= THI < 29",
+          "29 <= DI < 32", ">= 32")
+          
+Class <- c("No discomfort", "< half of population feels discomfort",
+          "More than half feel discomfort", "Everyone feels severe stress", 
+          "Most of population feel discomfort", "Emergency")
+
+
+#Bind all frames
+Index <- cbind.data.frame(Class_number, THI, Class)
+
+#Load in Kable for table formatting
+library(kableExtra)
+kable(Index, caption = "THI Classification") %>% 
+  kable_styling(position = "float_right", font_size = 14, 
+                bootstrap_options ="striped", full_width = T)
+```
+
+
+  
+### **Aims** 
+The aim of the study is to evaluate/examine the variation of Bioclimatic conditions over Lagos-Nigeria using the Thermal comfort index as well as making comparisons between thermal comfort onsets, decline and trends utilizing Ikorodu, Ikeja and Lagos Island as the case study. 
+
+### **Objectives**
+- Examine Extreme Temperature and Relative Humidity Events
+-	Examine the thermal comfort conditions over these areas using the algorithm 
+- Capture the number of heating days (strong heat events) yearly and monthly and as well test for significance. i.e THI >= 27℃
+
+
+### **Research Hypothesis**
+- H~1~ = As a result of increased anthropogenic activities in Lagos, Comfort conditions will be on a decline for most residents with a rising number of extreme events in Lagos state.
+- H~o~ = Despite increased anthropogenic activities in Lagos, Comfort conditions will remain satisfactory for most residents in Lagos state.
+
+
+<br>
+
+
+
+### **Data**
+  Data for this study was obtained from the be obtained from the NASA Langley Research Center Atmospheric Science Data Center Surface Meteorological and Solar Energy (SSE) web portal supported by the NASA LARC POWER Project, using gridded daily data with spatial resolution of 0.5o x 0.5o and a temporal resolution of 30 years (1989 – 2018). 
+Temperature and Relative humidity data were extracted for the locations in the study area:
+
+
+- Ikeja (Lon 3.34771, Lat 6.61031)
+- Ikorodu (Lon 3.52061, Lat 6.62051)
+- Lagos Island (Lon 3.38921, Lat 6.45471). 
+
+
+<br>
+
+### **Findings**
+The findings of this research is briefly highlighted;
+
+- Temperature is on the rise over all locations
+- Comfort conditions are on a decline with increase in heating days i.e. THI >= 27°C
+- Climate change seems to be having its effect over the study area
+
+
